@@ -5,7 +5,6 @@
     /*  连接数据 Lyc\Db\Connect.class.php
     */
   namespace Lyc\Db;
-  use Lyc\Db\DbException;
   class Connect extends Config{
       private $db=null;
       static  $_instance;
