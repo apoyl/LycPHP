@@ -20,25 +20,27 @@ class LogTest extends LycTest{
         
         $log=new Log();
         $now=time();
-        $path=dirname(__FILE__).DIRECTORY_SEPARATOR.'Log'.DIRECTORY_SEPARATOR.date('Y',$now);
+        $path=dirname(__FILE__).DIRECTORY_SEPARATOR.'Log'.DIRECTORY_SEPARATOR.date('Y',$now).DIRECTORY_SEPARATOR.date('m',$now);
 
         $filename='mylog_'.date('Ym',$now);
         $data=array(
-            'time'=>date('Y-m-d H:i:s',$now),   //日期
+            'time'=>date('Y-m-d',$now),   //日期
             'author'=>'dddsdafas',              //作者
             'ip'=>'127.0.0.1',                  //ip
             'ac'=>'删除',                       //动作
             'content'=>'非法字符',              //内容
             'url'=>'nihao.php'                  //提交前的url
         );
-        try{
-          $log->init($path,$filename,$ext='.log','utf-8',$pri=0700);
-          $log->create($data);           
-        }catch(Exception $e){
-            echo 'log write failure !';
-            exit;
-        }
-
+        
+	  //初始化
+          $log->init($path,$filename,$ext='.xml');
+          //写入日志文件
+	  $log->write($data);
+	  //读取日志文件 开始0 行数1
+	  $redata= $log->read(0,1);  
+	     
+	   $this->assertEqual($data,$redata[0]);   
+ 		          
     }
 }    
       new LogTest();   
