@@ -7,28 +7,28 @@ LycPHP是一个基于组件的PHP开源框架，组件之间无耦合关系，�
 
 	./Lyc		框架
 	
-		/Db					Db组件
-		/Ftp					Ftp组件
-		/Loader					自动加载组件
-		/Log					日志组件
-		/Mail					邮件组件
-		/Mongo					MongoDB组件
-		/Paginator				分页组件
-		/Url					Url组件
+		/Db							Db组件
+		/Ftp						Ftp组件
+		/Loader						自动加载组件
+		/Log						日志组件
+		/Mail						邮件组件
+		/Mongo						MongoDB组件
+		/Paginator					分页组件
+		/Url						Url组件
 	
 	
 	./Test		组件测试
 	
-		/LycTest.class.php			测试框架
-		/DbTest.class.php			数据库测试
-		/FtpTest.class.php			Ftp测试
+		/LycTest.class.php				测试框架
+		/DbTest.class.php				数据库测试
+		/FtpTest.class.php				Ftp测试
 		/LoaderTest.class.php			自动加载测试
-		/LogTest.class.php			日志测试
-		/MailTest.class.php			邮件测试
+		/LogTest.class.php				日志测试
+		/MailTest.class.php				邮件测试
 		/MongoTest.class.php			MongoDB测试
 		/PaginatorTest.class.php		分页测试
-		/UrlTest.class.php			Url测试
-		/messages.sql				数据库测试DB库	  
+		/UrlTest.class.php				Url测试
+		/messages.sql					数据库测试DB库	  
 
 
 ### 引入组件：
