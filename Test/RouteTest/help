@@ -1,0 +1,36 @@
+RouteTest：使用Route组件完成站点单一入口测试
+
+一、目录结构：
+
+	./mod						模块集合
+		/App
+			/Ctr
+				/Index.php		默认控制器
+								
+	
+	./pub/index.php					站点入口
+
+
+二、nginx站点配置案例：
+
+	server{
+      		listen       8083;
+		server_name  localhost;
+  		location / {
+  		root   自定义站点目录/LycPHP/Test/RouteTest/pub;
+   		index   index.php index.htm index.html;
+   		try_files $uri $uri/ /index.php$is_args$args;  
+			}
+        	location ~ \.php$ {
+	       
+			fastcgi_pass   127.0.0.1:9000;
+			fastcgi_index  index.php;
+			fastcgi_param  SCRIPT_FILENAME  自定义站点目录/LycPHP/Test/RouteTest/pub/$fastcgi_script_name;
+			include        fastcgi_params;
+								        }   
+
+	}
+	访问地址：http://localhost:8083/app/index/index	
+
+
+三、apache 暂无测试				  		    
