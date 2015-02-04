@@ -14,6 +14,7 @@ LycPHP是一个基于组件的PHP开源框架，组件之间无耦合关系，�
 		/Mail						邮件组件
 		/Mongo						MongoDB组件
 		/Paginator					分页组件
+		/Route						Route组件
 		/Url						Url组件
 	
 	
@@ -28,7 +29,8 @@ LycPHP是一个基于组件的PHP开源框架，组件之间无耦合关系，�
 		/MongoTest.class.php			MongoDB测试
 		/PaginatorTest.class.php		分页测试
 		/UrlTest.class.php				Url测试
-		/messages.sql					数据库测试DB库	  
+		/messages.sql					数据库测试DB库
+		/RouteTest					Route测试	  
 
 
 ### 引入组件：
