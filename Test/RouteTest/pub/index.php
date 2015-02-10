@@ -8,7 +8,7 @@ use Lyc\Route\RouteDispatcher;
 use Lyc\Loader\Autoloader;
 require_once __DIR__.'/../../../Lyc/Loader/Autoloader.class.php';
 Autoloader::getInstance();
-$r=dirname(__FILE__).'/../mod';
+$r=dirname(__DIR__).'/mod';
 set_include_path(get_include_path().PATH_SEPARATOR.$r);
 
 $dispatcher=new RouteDispatcher();
