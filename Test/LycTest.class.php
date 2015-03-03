@@ -98,13 +98,17 @@
        private function  aE($param1,$param2){
                $f=TRUE;     //初始化参数成功
                if(is_array($param1)&&is_array($param2)){
-                   foreach($param1 as $k=>$v){
-                        if($v!==$param2[$k]){
+		   if(count($param1)!=count($param2)) 
+			$f=FALSE;
+		   else{
+                   	foreach($param1 as $k=>$v){
+                        	if(isset($param2[$k])&&$v!==$param2[$k]){
                             
-                              $f=FALSE;
-                              break;
-                        }
-                   } 
+                             		 $f=FALSE;
+                              		break;
+                       		 }
+                      	} 
+		   }
                }else if($param1!==$param2){
                    $f=FALSE; 
                }
