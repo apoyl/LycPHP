@@ -16,6 +16,8 @@ LycPHP是一个基于组件的PHP开源框架，组件之间无耦合关系，�
 		/Paginator					分页组件
 		/Route						Route组件
 		/Url						Url组件
+		/Algorithm					算法组件
+		/Cache						缓存组件
 	
 	
 	./Test		组件测试
@@ -30,7 +32,9 @@ LycPHP是一个基于组件的PHP开源框架，组件之间无耦合关系，�
 		/PaginatorTest.class.php		分页测试
 		/UrlTest.class.php				Url测试
 		/messages.sql					数据库测试DB库
-		/RouteTest					Route测试	  
+		/RouteTest					Route测试
+		/AlgorithmTest.class.php		算法测试
+		/CacheTest.class.php			缓存测试	  
 
 
 ### 引入组件：
