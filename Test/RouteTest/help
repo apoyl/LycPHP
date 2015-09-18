@@ -33,4 +33,27 @@ RouteTest：使用Route组件完成站点单一入口测试
 	访问地址：http://localhost:8083/app/index/index	
 
 
-三、apache 暂无测试				  		    
+三、apache
+	<VirtualHost *:8086>
+    		ServerAdmin jar-c@163.com
+    		DocumentRoot "自定义站点目录/LycPHP/Test/RouteTest/pub"
+    		ServerName localhost
+    		ServerAlias localhost
+    		DirectoryIndex index.php
+    		#ErrorLog "logs/dummy-host.example.com-error_log"
+    		#CustomLog "logs/dummy-host.example.com-access_log" common
+     		<Directory 自定义站点目录/LycPHP/Test/RouteTest/pub>
+         		DirectoryIndex index.php
+         		AllowOverride All
+         		Order allow,deny
+         		Allow from all
+     		</Directory>
+		<IfModule mod_rewrite.c>
+			RewriteEngine On
+			RewriteCond %{REQUEST_FILENAME} ^.*\.(gif|jpg|jpeg|png|swf|css|js)$
+			RewriteRule .*$ - [NC,L]
+			RewriteRule ^(.*)$ /index.php [NC,L]
+		</IfModule>
+	</VirtualHost>				
+  		    
+	访问地址：http://localhost:8086/app/index/index	
