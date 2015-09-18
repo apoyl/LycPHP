@@ -10,5 +10,9 @@
      public function getPviews();
      //设置中英文
      public function setLanuage($language);
+     //上一页码
+     public function prepage();
+     //下一页码
+     public function nextpage();
   }     
 ?>

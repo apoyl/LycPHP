@@ -38,12 +38,12 @@
          $this->purl=$purl;
      }
 
-    protected function nextpage(){
+    public function nextpage(){
          $ptotal=$this->getTotalPage();
          $re=$this->pcurrent+1>$ptotal?$ptotal:($this->pcurrent+1<2?2:$this->pcurrent+1);
          return $re;
     }
-    protected function prepage(){
+    public function prepage(){
          $ptotal=$this->getTotalPage();        
         $re=($this->pcurrent-1<1)?1:($this->pcurrent-1>$ptotal?$ptotal-1:$this->pcurrent-1);
         return $re;

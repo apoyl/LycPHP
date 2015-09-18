@@ -21,10 +21,9 @@
        /*@param:int 当前的页码
        /*@param:string  链接 
         */
-       $pag=new Paginator(200,10,20,4,"http://www.apoyl.com");
+       $pag=new Paginator(200,10,20,3,"http://www.apoyl.com");
         //测试下一页 是否等于6 
-        //这个会报错，如果需要测试nextpage方法访问权限protected  更改为public
-	//$this->assertEqual(6,$pag->nextpage());
+	$this->assertEqual(4,$pag->nextpage());
 
         //测试输出的视图
         //测试结果是不相等，亲，我相信你会修改
