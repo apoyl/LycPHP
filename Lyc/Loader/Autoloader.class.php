@@ -9,6 +9,7 @@
        protected $defaultclass=array('Lyc\Loader\Autoloader','loadClass');
 
        protected static $_instance;
+       protected static $_prodir;
        
        public static function getInstance(){
            if(null===self::$_instance){
@@ -42,21 +43,31 @@
 
           if(class_exists($class,false)){
               return false;
-          }
+            }
         
-	if(strrpos($class,'\\')){
-		$class=str_replace('\\',DIRECTORY_SEPARATOR,$class);
-         }
-  	 $lycspace=str_replace('Lyc'.DIRECTORY_SEPARATOR.'Loader','',__DIR__);  
-	$file=$lycspace.str_replace('_',DIRECTORY_SEPARATOR,$class).'.class.php';
-         self::defaultDir($file);
+	       if(strrpos($class,'\\')){
+		      $class=str_replace('\\',DIRECTORY_SEPARATOR,$class);
+             }
+         if(stripos($class, 'Lyc')===FALSE){
+             $file=self::$_prodir.str_replace('_',DIRECTORY_SEPARATOR,$class).'.php';
+          }else{
+            $lycspace=str_replace('Lyc'.DIRECTORY_SEPARATOR.'Loader','',__DIR__);
+            $file=$lycspace.str_replace('_',DIRECTORY_SEPARATOR,$class).'.class.php';
+             }
+          self::defaultDir($file);
+
       }
       
       
       public static function defaultDir($file){
           if($file&&file_exists($file)){	
+
               include $file;
           }
+      }
+      //设置项目空间
+      public static function proDir($prodir){
+          self::$_prodir=$prodir;
       }
 
    }  
