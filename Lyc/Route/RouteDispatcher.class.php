@@ -39,12 +39,21 @@ class RouteDispatcher{
 		$this->loadCtr();
 		$class=$this->route->getModule().'\\'.RouteDispatcher::CTR.'\\'.$this->route->getCtr();
 		$method=$this->route->getMethod().'Action';
-		if(!class_exists($class))
-			echo "CLASS [$class] NOT FOUND <br/>";	
+		if(!class_exists($class)){
+		    if(error_reporting())
+			     echo "CLASS [$class] NOT FOUND <br/>";	
+		    else
+		        echo '<H2>404 NOT FOUND</H2>';
+		}
 		else{
 			$c=new $class();
-			if(!method_exists($class,$method))
-				echo "$class->$method() NOT FOUND <br/>";
+			if(!method_exists($class,$method)){
+			    if(error_reporting())
+				        echo "$class->$method() NOT FOUND <br/>";
+			        else
+			           echo '<H2>404 NOT FOUND</H2>';
+
+			}
 			else 
 				$c->$method();
 		}
